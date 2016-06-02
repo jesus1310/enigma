@@ -6,7 +6,6 @@
  */
 public class MecanismoMultiplicacionPrimo extends Mecanismo
 {
-    private int numPrimo;
     /**
      * Constructor for objects of class MecanismoMultiplicacionPrimo
      */

@@ -51,4 +51,18 @@ public class EnigmaTest
         assertEquals(9000,  enigma.desencripta(mecanismo01, 63000));              
         assertEquals(-1,  enigma.desencripta(mecanismo01, 70)); 
     }
+
+    @Test
+    public void testCommit02Bayon()
+    {
+        Enigma enigma = new Enigma();
+        Mecanismo mecanismo02 = new MecanismoOffset(2);            
+        
+        assertEquals(3682,  enigma.encripta(mecanismo02, 3460));
+        assertEquals(9165,  enigma.encripta(mecanismo02, 9943));
+        assertEquals(-1,    enigma.encripta(mecanismo02, 10));
+        assertEquals(3460,  enigma.desencripta(mecanismo02, 3682));
+        assertEquals(9943,  enigma.desencripta(mecanismo02, 9165));
+        assertEquals(-1,  enigma.desencripta(mecanismo02, 12));
+    }
 }

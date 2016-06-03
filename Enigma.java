@@ -42,6 +42,15 @@ public class Enigma
                 valorDevuelto = numero;
             }
         }
+        else if (mecanismo instanceof MecanismoSumatorioParcial){
+            if (numero > 10){
+                int resultado = numero;
+                for (int i = 1; numero - i >= mecanismo.getClave(); i++){
+                    resultado += numero - i;
+                }
+                valorDevuelto = resultado;
+            }
+        }
         return valorDevuelto;
     }
 
@@ -72,8 +81,24 @@ public class Enigma
                         }
                     }
                 }
-                if (numero < 10){
+                if (numero > 10){
                     valorDevuelto = numero;
+                }
+            }
+        }
+        else if (mecanismo instanceof MecanismoSumatorioParcial){
+            int resultado = 0;
+            if (numero > 10){
+                int i = 0;
+                while(numero > 0) {
+                    numero = numero - (mecanismo.getClave() + i);
+                    if(numero > 0) {
+                        i++;
+                    }
+                }
+                resultado = (i + mecanismo.getClave());
+                if (numero >= 0){
+                    valorDevuelto = resultado;
                 }
             }
         }
